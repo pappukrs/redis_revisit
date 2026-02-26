@@ -1,0 +1,8 @@
+node_modules
+npm-debug.log
+**/dist
+**/build
+.git
+.vscode
+.env
+redis_data
