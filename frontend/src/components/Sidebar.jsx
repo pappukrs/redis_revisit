@@ -7,13 +7,19 @@ export default function Sidebar({ invalidationLog }) {
     return (
         <aside className={`app-sidebar ${isCollapsed ? "collapsed" : ""}`}>
             <div className="sidebar-header">
-                {!isCollapsed && <span className="sidebar-title">Analytics</span>}
+                {!isCollapsed && <span className="sidebar-title">Management</span>}
                 <button
                     className="sidebar-toggle"
                     onClick={() => setIsCollapsed(!isCollapsed)}
                     title={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
                 >
-                    {isCollapsed ? "→" : "←"}
+                    <span style={{
+                        display: "inline-block",
+                        transition: "transform 0.3s ease",
+                        transform: isCollapsed ? "rotate(180deg)" : "rotate(0deg)"
+                    }}>
+                        ⟨
+                    </span>
                 </button>
             </div>
 

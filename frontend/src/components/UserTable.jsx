@@ -194,19 +194,19 @@ export default function UserTable({ onUserUpdated }) {
                     <tbody>
                         {paginated.map((user) => (
                             <tr key={user.id} className={updatedRowId === user.id ? "updated-row" : ""}>
-                                <td style={{ fontFamily: "monospace", fontSize: 11, color: "var(--text-muted)" }}>
+                                <td style={{ fontFamily: "monospace", fontSize: 12, color: "var(--text-muted)", fontWeight: 500 }}>
                                     {user.id}
                                 </td>
                                 <td>
-                                    <div style={{ fontWeight: 500 }}>{user.name}</div>
-                                    <div style={{ fontSize: 11, color: "var(--text-muted)" }}>{user.city} · {user.age}y</div>
+                                    <div style={{ fontWeight: 700, color: "var(--text-primary)", fontSize: 15 }}>{user.name}</div>
+                                    <div style={{ fontSize: 12, color: "var(--text-muted)", marginTop: 2 }}>{user.city} · {user.age}y</div>
                                 </td>
-                                <td style={{ maxWidth: 200 }}>{user.email}</td>
-                                <td>{user.department}</td>
-                                <td style={{ color: "var(--text-secondary)" }}>{user.role}</td>
+                                <td style={{ color: "var(--text-secondary)", fontWeight: 400 }}>{user.email}</td>
+                                <td style={{ fontWeight: 500 }}>{user.department}</td>
+                                <td style={{ color: "var(--text-secondary)", fontSize: 13 }}>{user.role}</td>
                                 <td><StatusBadge status={user.status} /></td>
-                                <td>${user.salary?.toLocaleString()}</td>
-                                <td style={{ color: "var(--text-muted)", fontSize: 12 }}>{user.joinedAt}</td>
+                                <td style={{ fontWeight: 600, color: "var(--text-primary)" }}>${user.salary?.toLocaleString()}</td>
+                                <td style={{ color: "var(--text-muted)", fontSize: 13, fontWeight: 500 }}>{user.joinedAt}</td>
                                 <td>
                                     <SourceBadge source={updatedRowId === user.id ? "DB" : cacheSource} />
                                 </td>
