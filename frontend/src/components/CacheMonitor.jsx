@@ -56,7 +56,7 @@ function CacheLayerCard({ name, tag, data, variant }) {
     );
 }
 
-export default function CacheMonitor({ invalidationLog }) {
+export default function CacheMonitor({ invalidationLog, isCollapsed }) {
     const [stats, setStats] = useState(null);
     const [loading, setLoading] = useState(true);
     const [resetting, setResetting] = useState(false);
@@ -79,6 +79,8 @@ export default function CacheMonitor({ invalidationLog }) {
         setResetting(true);
         try { await resetCache(); await refresh(); } finally { setResetting(false); }
     };
+
+    if (isCollapsed) return null;
 
     return (
         <div className="cache-monitor">

@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import "./index.css";
 import UserTable from "./components/UserTable";
-import CacheMonitor from "./components/CacheMonitor";
+import Sidebar from "./components/Sidebar";
 
 function Toast({ toasts }) {
   return (
@@ -65,9 +65,7 @@ export default function App() {
       </main>
 
       {/* ── Sidebar ── */}
-      <aside className="app-sidebar">
-        <CacheMonitor invalidationLog={invalidationLog} />
-      </aside>
+      <Sidebar invalidationLog={invalidationLog} />
 
       {/* ── Toasts ── */}
       <Toast toasts={toasts} />
