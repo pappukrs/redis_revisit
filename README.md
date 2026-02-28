@@ -110,3 +110,6 @@ redis_revisit/
 3. Edit any user → toast shows `N cache key(s) evicted`
 4. Check `/api/cache/stats` → only 1 `user:<id>` key was evicted
 5. The sidebar's "Recent Invalidations" shows exactly which keys were evicted
+## Browser State Cleanup
+
+The frontend now includes utilities to ensure no persistent browser state (localStorage, sessionStorage, cookies, IndexedDB) remains after the user leaves the page. A `clearBrowserState` function is called on `beforeunload` to wipe any stored data, providing a clean slate on each session.
