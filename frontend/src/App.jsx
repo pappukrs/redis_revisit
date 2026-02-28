@@ -1,7 +1,7 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import "./index.css";
 import UserTable from "./components/UserTable";
-import Sidebar from "./components/Sidebar";
+import { clearBrowserState } from "./services/browserState";
 
 function Toast({ toasts }) {
   return (
@@ -38,7 +38,13 @@ export default function App() {
       "⚡"
     );
   }, [addToast]);
-
+  useEffect(() => {
+    const unloadHandler = () => {
+      clearBrowserState();
+    };
+    window.addEventListener('beforeunload', unloadHandler);
+    return () => window.removeEventListener('beforeunload', unloadHandler);
+  }, []);
   return (
     <div className="app-layout">
       {/* ── Header ── */}
